@@ -49,6 +49,7 @@ async function handleGetAnalytics(req,res){
           redirectURL: item.redirectURL,
         }));
     });
+    result.sort((a, b) => b.timestamp - a.timestamp);
 
     return res.json({analytics: result});
 }
