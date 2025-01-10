@@ -3,20 +3,29 @@ import React from "react";
 
 // Import styles (CSS file or styled-components can be used)
 import "./HomePage.css";
+import { useNavigate } from "react-router";
+import Navbar from "../Components/Navbar";
 
 const HomePage = () => {
+  const navigate = useNavigate();
   return (
     <div className="homepage">
       {/* Navbar */}
-      <nav className="navbar">
-        <div className="logo">URLShortner</div>
-        <button className="login-btn">Login</button>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <header className="hero-section">
-        <h1>Make Your Links Smarter, Not Longer</h1>
-        <button className="get-started-btn">Get Started</button>
+        <h1>
+          Make Your <em>Links</em> <br />
+          Smarter, Not <br />
+          Longer
+        </h1>
+        <button
+          className="get-started-btn"
+          onClick={() => navigate("/shortURL")}
+        >
+          Get Started
+        </button>
       </header>
 
       {/* Image Section */}

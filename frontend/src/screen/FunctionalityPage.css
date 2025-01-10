@@ -1,0 +1,22 @@
+.logs-section{
+    border:2px solid white;
+}
+
+.main-section{
+    display: flex;
+
+}
+
+.input-section{
+    border:2px solid rgb(198, 7, 7);
+}
+
+.urls-section{
+    border:2px solid rgb(107, 228, 241);
+}
+
+.logs-section,.urls-section{
+    min-width: 278px;
+    flex-grow: 1;
+    background-color: blueviolet;
+}
