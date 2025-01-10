@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import "./Login.css"; // Add your styles here or inline
 import { Link, useNavigate } from "react-router";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const navigate = useNavigate();
   const [details, setDetails] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -27,8 +28,24 @@ const LoginPage = () => {
       <main>
         <form>
           <header>
-            <h2>Sign In</h2>
+            <h2>Sign Up</h2>
           </header>
+          <div className="mb-3">
+            <label for="exampleInputName" className="form-label">
+              Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputName"
+              aria-describedby="nameHelp"
+              placeholder="Enter your name"
+              name="name"
+              value={details.name}
+              onChange={handlechange}
+              required
+            />
+          </div>
           <div className="mb-3">
             <label for="exampleInputEmail1" className="form-label">
               Email address
@@ -65,9 +82,9 @@ const LoginPage = () => {
           </button>
         </form>
         <p>
-          Don’t have an account?{" "}
-          <Link to="/signup" className="signup-link">
-            Sign Up Here
+          Already have an account?{" "}
+          <Link to="/login" className="signup-link">
+            Login Here
           </Link>
         </p>
       </main>
@@ -75,4 +92,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
