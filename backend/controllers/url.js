@@ -4,6 +4,7 @@ const USER = require('../models/user');
 
 async function handleGenerateNewShortURL(req,res){
     const body = req.body;
+    console.log('body',body);
     if(!body.url) return res.status(400).json({ error: 'url is required!!!'});
     const shortID = nanoid(8);
 
@@ -16,7 +17,7 @@ async function handleGenerateNewShortURL(req,res){
         CreatedBy : user_obj_ID,
     });
 
-    return res.status(201).json({obj_id: newURL,id: shortID,redirectURL});
+    return res.status(201).json({obj_id: newURL._id,shortID,redirectURL:body.url});
     // return res.render("home",{ id: shortID });
 }
 
@@ -51,7 +52,7 @@ async function handleGetAnalytics(req,res){
     });
     result.sort((a, b) => b.timestamp - a.timestamp);
 
-    return res.json({analytics: result});
+    return res.json({logs: result});
 }
 async function handleGetURL(req,res){
     const user_obj_ID = req.user;

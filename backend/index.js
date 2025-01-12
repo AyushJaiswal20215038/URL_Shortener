@@ -3,6 +3,7 @@ const urlRoute = require("./routes/url");
 const { connectMongoDB } = require('./connect');
 const URL = require('./models/url');
 const path = require('path');
+const cors = require('cors');
 // const staticRoute = require('./routes/StaticRouter');
 const userRoute = require('./routes/user');
 require('dotenv').config();
@@ -10,6 +11,7 @@ require('dotenv').config();
 const app= express();
 const port= 8000;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

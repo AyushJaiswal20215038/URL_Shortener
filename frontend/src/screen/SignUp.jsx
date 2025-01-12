@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css"; // Add your styles here or inline
 import { Link, useNavigate } from "react-router";
+import axios from "axios";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -14,8 +15,22 @@ const SignUpPage = () => {
     setDetails({ ...details, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(details);
+    try {
+      await axios
+        .post("http://localhost:8000/user/signup", details)
+        .then((res) => {
+          if (res.data.msg === "User Added Successfully") navigate("/login");
+          else console.log(res);
+        })
+        .catch((err) => {
+          console.log(err.code.split("ERR_")[1]);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -31,7 +46,7 @@ const SignUpPage = () => {
             <h2>Sign Up</h2>
           </header>
           <div className="mb-3">
-            <label for="exampleInputName" className="form-label">
+            <label htmlFor="exampleInputName" className="form-label">
               Name
             </label>
             <input
@@ -47,7 +62,7 @@ const SignUpPage = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
             </label>
             <input
@@ -63,7 +78,7 @@ const SignUpPage = () => {
             />
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label">
               Password
             </label>
             <input
@@ -77,7 +92,11 @@ const SignUpPage = () => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         </form>

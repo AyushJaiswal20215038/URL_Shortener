@@ -1,5 +1,5 @@
 // Import necessary libraries
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Import styles (CSS file or styled-components can be used)
 import "./HomePage.css";
@@ -8,6 +8,8 @@ import Navbar from "../Components/Navbar";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  let token = sessionStorage.getItem("token") || "";
+
   return (
     <div className="homepage">
       {/* Navbar */}
@@ -22,7 +24,7 @@ const HomePage = () => {
         </h1>
         <button
           className="get-started-btn"
-          onClick={() => navigate("/shortURL")}
+          onClick={() => navigate(token.length ? "/shortURL" : "/login")}
         >
           Get Started
         </button>

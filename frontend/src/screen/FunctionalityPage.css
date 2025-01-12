@@ -18,5 +18,4 @@
 .logs-section,.urls-section{
     min-width: 278px;
     flex-grow: 1;
-    background-color: blueviolet;
 }
