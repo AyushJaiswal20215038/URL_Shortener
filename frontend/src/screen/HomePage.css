@@ -4,6 +4,15 @@
 .image-item{
     padding: 3px;
 }
+.homepage{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 ul{
     padding-right: 12px;
+    /* text-align: justify; */
+}
+.content{
+    flex: 1;
 }

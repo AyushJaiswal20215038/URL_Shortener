@@ -45,9 +45,9 @@ function CreateNewUrl({ token }) {
           value={originalUrl}
           onChange={(e) => setOriginalUrl(e.target.value)}
         />
-        <button className="create-btn" onClick={() => handleGenrateURL()}>
+        <div className="create-btn" onClick={() => handleGenrateURL()}>
           Create
-        </button>
+        </div>
       </div>
       {Object.keys(receivedData).length !== 0 ? (
         <h3>{`http://localhost:8000/url/${receivedData.shortID}`}</h3>

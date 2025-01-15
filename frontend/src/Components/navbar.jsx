@@ -13,7 +13,9 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="logo" onClick={() => navigate("/")}>
-          URLShortner
+          <h3>
+            <span>URL</span>Shortner
+          </h3>
         </div>
         {token.length === 0 ? (
           <button className="login-btn" onClick={() => navigate("/login")}>
