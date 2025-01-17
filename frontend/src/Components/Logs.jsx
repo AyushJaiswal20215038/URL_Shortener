@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import LogCard from "./LogCard";
 
 function Logs({ token }) {
   const [logs, setLogs] = useState([]);
@@ -32,19 +33,16 @@ function Logs({ token }) {
   return (
     <>
       <div className="logs-section">
-        <h2>Logs</h2>
-        <div className="logs-list">
-          {console.log("logs", logs)}
-          {logs.length !== 0 ? (
-            logs.map((log, index) => (
-              <p key={index}>
-                {Date(log.timestamp)}-- http://localhost:8000/url/{log.shortID}{" "}
-                --{log.redirectURL}
-              </p>
-            ))
-          ) : (
-            <p>No logs yet.</p>
-          )}
+        <div className="log-content">
+          <h2>Logs</h2>
+          <div className="logs-list">
+            {console.log("logs", logs)}
+            {logs.length !== 0 ? (
+              logs.map((log, index) => <LogCard key={index} log={log} />)
+            ) : (
+              <p>No logs yet.</p>
+            )}
+          </div>
         </div>
       </div>
     </>

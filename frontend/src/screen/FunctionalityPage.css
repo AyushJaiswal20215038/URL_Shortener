@@ -19,11 +19,15 @@
     border: 1px solid #ffffff73;
 }
 
+.log-content,.url-content{
+    width: fit-content;
+    justify-self: center;
+}
 
     
-    .logs-section{
-        border-left: 2px solid white;
-    }
+.logs-section{
+    border-left: 2px solid white;
+}
 .urls-section{
     border-right:2px solid rgb(255, 255, 255);
 }
@@ -33,7 +37,7 @@
     flex-grow: 1;
     border-bottom: 2px solid;
     min-height: inherit;
-    max-height: 100px;
+    padding-bottom: 7px;
 }
 
 
@@ -69,4 +73,17 @@
 .create-btn:hover{
     outline: 0;
     box-shadow: 6px -3px 4px 0px #525252;
+}
+
+
+.url-item{
+    background-color: midnightblue;
+    border-radius: 8px;
+    padding: 0 5px;
+}
+
+.logs-list{
+    overflow: scroll;
+    height: 284px;
+    scrollbar-width: none;
 }
