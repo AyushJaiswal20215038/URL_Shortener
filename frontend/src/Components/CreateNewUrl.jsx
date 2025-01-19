@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function CreateNewUrl({ token }) {
+  const urls = useSelector((state) => state.counter.value);
+
   const [originalUrl, setOriginalUrl] = useState("");
   const [receivedData, setreceivedData] = useState({});
 
@@ -35,6 +38,7 @@ function CreateNewUrl({ token }) {
 
   return (
     <div>
+      {/* {console.log(urls)} */}
       <h3>Redirect new URL</h3>
       <label htmlFor="original-url">Original URL</label>
       <div className="input-wrapper">

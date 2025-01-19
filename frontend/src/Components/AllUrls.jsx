@@ -2,9 +2,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import URLCard from "./URLCard";
+import { useSelector, useDispatch } from "react-redux";
+import { getURL } from "../redux/url/urlSlice";
 
 function AllUrls({ token }) {
-  const [allurls, setAllURLs] = useState([]);
+  // const [allurls, setAllURLs] = useState([]);
+  const dispatch = useDispatch();
+  const allurls = useSelector((state) => state.counter.value);
 
   const handleGetURL = async () => {
     // console.log("token:", token);
@@ -18,7 +22,8 @@ function AllUrls({ token }) {
         })
         .then((res) => {
           console.log("res", res.data);
-          setAllURLs(res.data.analytics);
+          // setAllURLs(res.data.analytics);
+          dispatch(getURL(res.data.analytics));
         })
         .catch((err) => {
           console.log("err", err);

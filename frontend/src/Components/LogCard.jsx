@@ -1,11 +1,13 @@
 import React from "react";
 
 const LogCard = ({ log }) => {
+  const date = new Date(log.timestamp);
+
   return (
-    <div class="card url-item">
-      <div class="card-body">
-        <h5 class="card-title">{Date(log.timestamp)}:</h5>
-        <p class="card-text">
+    <div className="card url-item">
+      <div className="card-body">
+        <h5 className="card-title">{date.toString()}:</h5>
+        <p className="card-text">
           ShortURL: http://localhost:8000/url/
           {log.shortID}
           <br />

@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 function Authorization(req,res,next){
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
-    console.log('token::',token);
+    // console.log('token::',token);
     if(!token)res.status(401).json({msg: "Token not received"});
 
     jwt.verify(token,process.env.SECRET_KEY,(err , user)=>{

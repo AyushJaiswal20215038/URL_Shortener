@@ -87,3 +87,19 @@
     height: 284px;
     scrollbar-width: none;
 }
+
+
+.url-title{
+    display: flex;
+    flex-direction: row;
+}
+.url-title span{
+    margin-left: auto;
+    line-height: 0px;
+    padding: 4px;
+    cursor: pointer;
+}
+.url-title span:hover {
+    border-radius: 13px;
+    background-color: #ff000054;
+}

@@ -26,8 +26,12 @@ function Logs({ token }) {
       console.log("error", error);
     }
   };
+
   useEffect(() => {
     handleGetLogs();
+    let interval = setInterval(handleGetLogs, 300000);
+    return () => clearInterval(interval);
+    // refreshLogs();
   }, [token]);
 
   return (
