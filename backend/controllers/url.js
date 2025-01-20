@@ -10,14 +10,25 @@ async function handleGenerateNewShortURL(req,res){
 
     const user_obj_ID = req.user;
 
+    const result = await URL.find({CreatedBy: user_obj_ID},'-visitedHistory').sort({updatedAt: "asc"});
+    let deletedURL = "none";
+              
     const newURL = await URL.create({
         shortID: shortID,
         redirectURL: body.url,
         visitedHistory: [],
         CreatedBy : user_obj_ID,
     });
+    
+    if(result.length>4){
+        const Isdeleted = await URL.deleteOne({'_id':result[0]._id});
+        if(Isdeleted.acknowledged){
+            deletedURL = result[0]._id;
+        }
+    }  
 
-    return res.status(201).json({obj_id: newURL._id,shortID,redirectURL:body.url});
+
+    return res.status(201).json({newurl:{_id: newURL._id,shortID,redirectURL:body.url},deletedURL});
     // return res.render("home",{ id: shortID });
 }
 
@@ -56,13 +67,21 @@ async function handleGetAnalytics(req,res){
 }
 async function handleGetURL(req,res){
     const user_obj_ID = req.user;
-    const result = await URL.find({CreatedBy: user_obj_ID},'-visitedHistory');// Excluding VisitedHistory
+    const result = await URL.find({CreatedBy: user_obj_ID},'-visitedHistory').sort({updatedAt: "desc"});// Excluding VisitedHistory
     return res.json({analytics: result});
+}
+
+async function handleDeleteURL(req,res){
+    const urlId = req.params.urlID;
+    // console.log(urlId);
+    const result = await URL.deleteOne({'_id':urlId});
+    return res.json({result});
 }
 
 module.exports = {
     handleGenerateNewShortURL,
     handleRedirectURL,
     handleGetAnalytics,
-    handleGetURL
+    handleGetURL,
+    handleDeleteURL,
 };

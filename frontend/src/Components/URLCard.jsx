@@ -2,28 +2,23 @@ import React from "react";
 import { Link } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteURL } from "../redux/url/urlSlice";
+import axios from "axios";
 
 const URLCard = ({ url }) => {
+  let token = sessionStorage.getItem("token");
   const dispatch = useDispatch();
   const handleDelete = async (url) => {
     try {
       await axios
-        .post(
-          "http://localhost:8000/url/",
-          {
-            url: originalUrl,
+        .delete(`http://localhost:8000/url/modifyurl/${url._id}`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + token,
-            },
-          }
-        )
+        })
         .then((res) => {
-          console.log("res", res.data);
           dispatch(deleteURL(url._id));
-          setreceivedData(res.data);
+          console.log("resdelete", res);
         })
         .catch((err) => {
           console.log("err", err);
@@ -37,7 +32,7 @@ const URLCard = ({ url }) => {
       <div className="card-body">
         <h5 className="card-title url-title">
           Original: {url.redirectURL}
-          <span onClick={() => Delete(url)}>
+          <span onClick={() => handleDelete(url)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

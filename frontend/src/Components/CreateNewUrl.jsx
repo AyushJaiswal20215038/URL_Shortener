@@ -1,15 +1,17 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { addURL, deleteURL } from "../redux/url/urlSlice";
 
 function CreateNewUrl({ token }) {
-  const urls = useSelector((state) => state.counter.value);
+  // const urls = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
 
   const [originalUrl, setOriginalUrl] = useState("");
   const [receivedData, setreceivedData] = useState({});
 
   const handleGenrateURL = async () => {
-    console.log("token:", token);
+    // console.log("token:", token);
     try {
       await axios
         .post(
@@ -25,8 +27,12 @@ function CreateNewUrl({ token }) {
           }
         )
         .then((res) => {
-          console.log("res", res.data);
-          setreceivedData(res.data);
+          console.log("res", res.data.newurl);
+          dispatch(addURL(res.data.newurl));
+          setreceivedData(res.data.newurl);
+          if (res.data.deletedURL !== "none") {
+            dispatch(deleteURL(res.data.deletedURL));
+          }
         })
         .catch((err) => {
           console.log("err", err);
