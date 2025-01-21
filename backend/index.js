@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-connectMongoDB('mongodb://localhost:27017/short-url').then(()=>{
+connectMongoDB(process.env.MONGODBURL).then(()=>{
     console.log("DB Connected");
 })
 

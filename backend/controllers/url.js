@@ -39,7 +39,7 @@ async function handleGenerateNewShortURL(req,res){
 async function handleRedirectURL(req,res){
     try {
         const shortID = req.params.shortid;
-        console.log("shortid:",shortID);
+        //console.log("shortid:",shortID);
         const entry = await URL.findOneAndUpdate({
             shortID,
         },  

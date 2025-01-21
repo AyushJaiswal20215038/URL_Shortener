@@ -18,7 +18,7 @@ const URLCard = ({ url }) => {
         })
         .then((res) => {
           dispatch(deleteURL(url._id));
-          console.log("resdelete", res);
+          //console.log("resdelete", res);
         })
         .catch((err) => {
           console.log("err", err);

@@ -18,7 +18,7 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(details);
+    // console.log(details);
     setLoading(true);
     try {
       await axios

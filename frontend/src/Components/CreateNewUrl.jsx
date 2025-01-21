@@ -49,7 +49,7 @@ function CreateNewUrl({ token }) {
           }
         )
         .then((res) => {
-          console.log("res", res.data.newurl);
+          // console.log("res", res.data.newurl);
           dispatch(addURL(res.data.newurl));
           setreceivedData(res.data.newurl);
           setAction({ ...Action, ["loading"]: false });
@@ -101,9 +101,7 @@ function CreateNewUrl({ token }) {
       )}
       {!Action.validUrl ? <p className="text-warning">url is not valid</p> : ""}
       {Action.error ? (
-        <p className="text-warning">
-          Error occurred. Try again. Check if url's format is correct.
-        </p>
+        <p className="text-warning">Error occurred. Try again.</p>
       ) : (
         ""
       )}

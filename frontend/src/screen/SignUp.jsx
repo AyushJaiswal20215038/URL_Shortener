@@ -18,7 +18,7 @@ const SignUpPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(details);
+    // console.log(details);
     try {
       await axios
         .post("http://localhost:8000/user/signup", details)
