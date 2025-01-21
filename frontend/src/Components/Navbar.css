@@ -26,3 +26,18 @@ nav{
 .logo h3:hover{
     text-shadow: 0px 0px 8px #000000;
 }
+
+.light-dark-btn{
+    line-height: 0;
+    height: fit-content;
+    align-self: center;
+    padding: 2px;
+    margin-right: 1px;
+    color: black;
+    cursor: pointer;
+}
+
+.light-dark-btn:hover {
+    border-radius: 10px;
+    background-color: #5f9ea069;
+}

@@ -82,7 +82,7 @@
     padding: 0 5px;
 }
 
-.logs-list{
+.logs-list,.urls-list{
     overflow: scroll;
     height: 284px;
     scrollbar-width: none;
