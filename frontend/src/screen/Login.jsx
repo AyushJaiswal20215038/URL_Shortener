@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css"; // Add your styles here or inline
 import { Link, useNavigate } from "react-router";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ const LoginPage = () => {
     email: "",
     password: "",
   });
+  const [Loading, setLoading] = useState(false);
 
   const handlechange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value });
@@ -17,18 +19,29 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(details);
+    setLoading(true);
     try {
       await axios
         .post("http://localhost:8000/user/signin", details)
         .then((res) => {
-          sessionStorage.setItem("token", res.data.token);
-          navigate("/");
+          // console.log(res);
+          if (res.data.msg === "Signed In Successfully") {
+            sessionStorage.setItem("token", res.data.token);
+            toast.success(res.data.msg);
+            setLoading(false);
+            navigate("/");
+          } else {
+            toast.error(res.data.msg);
+            setLoading(false);
+          }
         })
         .catch((err) => {
           console.log(err.code.split("ERR_")[1]);
+          setLoading(false);
         });
     } catch (error) {
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -79,8 +92,9 @@ const LoginPage = () => {
             type="submit"
             className="btn btn-primary"
             onClick={handleSubmit}
+            disabled={Loading}
           >
-            Submit
+            {!Loading ? "Submit" : "......"}
           </button>
         </form>
         <p>

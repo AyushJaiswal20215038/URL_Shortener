@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css"; // Add your styles here or inline
 import { Link, useNavigate } from "react-router";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -22,8 +23,10 @@ const SignUpPage = () => {
       await axios
         .post("http://localhost:8000/user/signup", details)
         .then((res) => {
-          if (res.data.msg === "User Added Successfully") navigate("/login");
-          else console.log(res);
+          if (res.data.msg === "User Added Successfully") {
+            toast.success(res.data.msg);
+            navigate("/login");
+          } else console.log(res);
         })
         .catch((err) => {
           console.log(err.code.split("ERR_")[1]);

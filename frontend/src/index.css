@@ -12,6 +12,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* --toastify-toast-width: 47vw; */
 }
 
 a {
@@ -67,3 +69,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* .Toastify__toast-container {
+  font-size: max(2vw, 11px);
+} */

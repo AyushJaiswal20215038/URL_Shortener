@@ -21,7 +21,7 @@ function AllUrls({ token }) {
           },
         })
         .then((res) => {
-          console.log("res", res.data);
+          // console.log("res", res.data);
           // setAllURLs(res.data.analytics);
           dispatch(getURL(res.data.analytics));
         })
@@ -37,7 +37,7 @@ function AllUrls({ token }) {
   }, []);
   return (
     <>
-      {console.log(allurls)}
+      {/* {console.log(allurls)} */}
       <div className="urls-section">
         <div className="url-content">
           <h2>Your URLs</h2>

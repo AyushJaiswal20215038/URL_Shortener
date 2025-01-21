@@ -1,11 +1,13 @@
 // Import necessary libraries
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 // Import styles (CSS file or styled-components can be used)
 import "./HomePage.css";
 import { useNavigate } from "react-router";
 import Navbar from "../Components/navbar";
 import Footer from "../Components/Footer";
+import axios from "axios";
 
 const HomePage = () => {
   const navigate = useNavigate();

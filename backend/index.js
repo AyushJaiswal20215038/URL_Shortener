@@ -22,12 +22,9 @@ connectMongoDB('mongodb://localhost:27017/short-url').then(()=>{
 // app.set('view engine','ejs');
 // app.set('views',path.resolve('./views'));
 
-// app.get('/test',async (req,res) => {
-//     const allURLs = await URL.find({});
-//     return res.render('home',{
-//         urls: allURLs,
-//     });
-// })
+app.get('/test',async (req,res) => {
+    return res.json({msg:"Server is ON"});
+});
 
 
 

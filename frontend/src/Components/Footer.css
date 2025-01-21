@@ -1,0 +1,10 @@
+
+  .social{
+    display: flex;
+    justify-content: center;
+    gap: 11px;
+}
+
+.footer-icon{
+    color: white;
+}

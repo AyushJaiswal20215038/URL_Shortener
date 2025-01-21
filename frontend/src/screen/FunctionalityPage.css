@@ -103,3 +103,9 @@
     border-radius: 13px;
     background-color: #ff000054;
 }
+
+.text-warning{
+    color: rgba(255, 106, 0, 0.529);
+    font-size: x-small;
+    font-weight: lighter;
+}

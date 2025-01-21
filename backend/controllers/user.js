@@ -16,22 +16,26 @@ async function handleSignUp(req,res){
         });
         return res.status(200).json({msg: "User Added Successfully"});
     } catch (error) {
-        return res.status(400).json({error});
+        return res.status(501).json({error});
     }
 };
 
 async function handleSignIn(req,res){
-    const user = req.body;
-    const ispresent = await USER.findOne({
-        email: user.email,
-    });
-    if(!ispresent)return res.status(401).json({msg: "Not Registered"});
-    const checkPassword = await bcrypt.compare(user.password,ispresent.password);
+    try {
+        const user = req.body;
+        const ispresent = await USER.findOne({
+            email: user.email,
+        });
+        if(!ispresent)return res.status(200).json({msg: "Not Registered"});
+        const checkPassword = await bcrypt.compare(user.password,ispresent.password);
+        
+        if(!checkPassword)return res.status(200).json({msg : "Incorrect Password"});
     
-    if(!checkPassword)return res.status(401).json({msg : "Incorrect Password"});
-
-    const token = jwt.sign({user_id: ispresent._id},process.env.SECRET_KEY);
-    return res.status(200).json({msg: "Signed In Successfully",token});
+        const token = jwt.sign({user_id: ispresent._id},process.env.SECRET_KEY);
+        return res.status(200).json({msg: "Signed In Successfully",token});
+    } catch (error) {
+        return res.status(501).json({error});
+    }
 }
 
 

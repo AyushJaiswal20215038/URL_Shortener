@@ -16,7 +16,7 @@ function Logs({ token }) {
           },
         })
         .then((res) => {
-          console.log("res", res.data);
+          // console.log("res", res.data);
           setLogs(res.data.logs);
         })
         .catch((err) => {
@@ -40,7 +40,7 @@ function Logs({ token }) {
         <div className="log-content">
           <h2>Logs</h2>
           <div className="logs-list">
-            {console.log("logs", logs)}
+            {/* {console.log("logs", logs)} */}
             {logs.length !== 0 ? (
               logs.map((log, index) => <LogCard key={index} log={log} />)
             ) : (
