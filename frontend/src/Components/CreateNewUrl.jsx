@@ -37,7 +37,7 @@ function CreateNewUrl({ token }) {
     try {
       await axios
         .post(
-          "http://localhost:8000/url/",
+          "https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/",
           {
             url: originalUrl,
           },
@@ -94,7 +94,7 @@ function CreateNewUrl({ token }) {
       </div>
       {Object.keys(receivedData).length !== 0 ? (
         <>
-          <h3>{`http://localhost:8000/url/${receivedData.shortID}`}</h3>
+          <h3>{`https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/${receivedData.shortID}`}</h3>
         </>
       ) : (
         ""

@@ -22,7 +22,10 @@ const LoginPage = () => {
     setLoading(true);
     try {
       await axios
-        .post("http://localhost:8000/user/signin", details)
+        .post(
+          "https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/user/signin",
+          details
+        )
         .then((res) => {
           // console.log(res);
           if (res.data.msg === "Signed In Successfully") {

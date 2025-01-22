@@ -22,11 +22,14 @@ function App() {
     const handleCheckServer = async () => {
       try {
         await axios
-          .get("http://localhost:8000/test", {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
+          .get(
+            "https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/test",
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          )
           .then((res) => {
             if (res.data.msg === "Server is ON") {
               setIsServerReachble(true);

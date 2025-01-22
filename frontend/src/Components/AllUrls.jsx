@@ -14,12 +14,15 @@ function AllUrls({ token }) {
     // console.log("token:", token);
     try {
       await axios
-        .get("http://localhost:8000/url/analytics/allurls", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        })
+        .get(
+          "https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/analytics/allurls",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
+          }
+        )
         .then((res) => {
           // console.log("res", res.data);
           // setAllURLs(res.data.analytics);

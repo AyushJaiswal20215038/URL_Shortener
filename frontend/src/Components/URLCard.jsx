@@ -10,12 +10,15 @@ const URLCard = ({ url }) => {
   const handleDelete = async (url) => {
     try {
       await axios
-        .delete(`http://localhost:8000/url/modifyurl/${url._id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        })
+        .delete(
+          `https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/modifyurl/${url._id}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
+          }
+        )
         .then((res) => {
           dispatch(deleteURL(url._id));
           //console.log("resdelete", res);
@@ -49,8 +52,8 @@ const URLCard = ({ url }) => {
         <p className="card-text">
           Shortened:{" "}
           <Link
-            to={`http://localhost:8000/url/${url.shortID}`}
-          >{`http://localhost:8000/url/${url.shortID}`}</Link>
+            to={`https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/${url.shortID}`}
+          >{`https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/${url.shortID}`}</Link>
         </p>
       </div>
     </div>

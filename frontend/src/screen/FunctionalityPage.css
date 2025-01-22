@@ -80,6 +80,8 @@
     background-color: midnightblue;
     border-radius: 8px;
     padding: 0 5px;
+    margin: 0 5px;
+    width: clamp(96px, 82vw, 367px);
 }
 
 .logs-list,.urls-list{

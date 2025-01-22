@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 // Import styles (CSS file or styled-components can be used)
 import "./HomePage.css";
 import { useNavigate } from "react-router";
-import Navbar from "../Components/navbar";
+import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import axios from "axios";
 

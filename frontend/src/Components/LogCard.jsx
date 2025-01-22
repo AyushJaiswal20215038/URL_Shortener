@@ -8,10 +8,11 @@ const LogCard = ({ log }) => {
       <div className="card-body">
         <h5 className="card-title">{date.toString()}:</h5>
         <p className="card-text">
-          ShortURL: http://localhost:8000/url/
+          ShortURL:
+          https://url-shortener-git-main-ayush-jaiswals-projects-4a21fe3d.vercel.app/url/
           {log.shortID}
           <br />
-          {log.redirectURL}
+          Original: {log.redirectURL}
         </p>
       </div>
     </div>
