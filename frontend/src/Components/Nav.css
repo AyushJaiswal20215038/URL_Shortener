@@ -12,13 +12,18 @@ nav{
 .logo h3{
     margin: 0px;
     font-family: 'Jura';
+    font-size: xx-large;
 }
 .logo h3 span{
     font-weight: 700;
     font-family: fantasy;
 }
 .login-btn{
-    height: 7vh;
+    
+    width: fit-content;
+    padding: 6px;
+    place-self: center;
+    height: max-content;
     max-height: 42px;
     line-height: 0px;
 }
@@ -32,7 +37,7 @@ nav{
     height: fit-content;
     align-self: center;
     padding: 2px;
-    margin-right: 1px;
+    margin-right: 1vw;
     color: black;
     cursor: pointer;
 }
@@ -40,4 +45,15 @@ nav{
 .light-dark-btn:hover {
     border-radius: 10px;
     background-color: #5f9ea069;
+}
+
+
+@media only screen 
+    and (max-device-width : 620px) 
+    and (orientation : portrait) 
+    and (-webkit-min-device-pixel-ratio : 2)
+{
+    .login-text{
+        display: none;
+    }
 }
