@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 
 import "./FunctionalityPage.css";
 
-import Navbar from "../Components/Navbar";
+import { Navbar } from "../Components/Navbar";
 import CreateNewUrl from "../Components/CreateNewUrl";
 import AllUrls from "../Components/AllUrls";
 import Logs from "../Components/Logs";
-import axios from "axios";
+// import axios from "axios";
 import { useNavigate } from "react-router";
 import Footer from "../Components/Footer";
 
