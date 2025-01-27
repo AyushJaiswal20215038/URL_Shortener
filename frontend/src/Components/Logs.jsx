@@ -32,7 +32,7 @@ function Logs({ token }) {
 
   useEffect(() => {
     handleGetLogs();
-    let interval = setInterval(handleGetLogs, 300000);
+    let interval = setInterval(handleGetLogs, 30000);
     return () => clearInterval(interval);
     // refreshLogs();
   }, [token]);
